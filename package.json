@@ -1,8 +1,8 @@
 {
-  "name": "pretty-data",
-  "version": "0.50.0",
+  "name": "pretty-data-umd",
+  "version": "0.50.1",
   "author": "Vadim Kiryukhin <vkiryukhin@gmail.com>",
-  "description": "plugin to pretty-print or minify XML, JSON, CSS and SQL files",
+  "description": "fork from Vadim Kiryukhin's pretty-data, export as umd and minified",
   "contributors": [
     {
       "name": "Vadim Kiryukhin",
@@ -11,20 +11,41 @@
   ],
   "repository": {
     "type": "git",
-    "url": "http://github.com/vkiryukhin/pretty-data.git"
+    "url": "http://github.com/digi3colin/pretty-data.git"
   },
-  "main":"./pretty-data",
+  "main": "./pretty-data",
   "keywords": [
-	"pretty print",
-	"beautify",
-	"minify",
-        "XML",
-	"JSON",
-	"CSS",
-        "SQL"
+    "pretty print",
+    "beautify",
+    "minify",
+    "XML",
+    "JSON",
+    "CSS",
+    "SQL"
   ],
   "license": "MIT",
-  "engine": {
-    "node": ">=0.4.9"
+  "devDependencies": {
+    "@babel/cli": "^7.1.0",
+    "@babel/core": "^7.1.0",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "uglify-js": "^3.4.9"
+  },
+  "babel": {
+    "plugins": [
+      "@babel/plugin-proposal-object-rest-spread",
+      "@babel/plugin-proposal-class-properties"
+    ],
+    "presets": [
+      "@babel/preset-react",
+      [
+        "@babel/preset-env",
+        {
+          "modules": "umd"
+        }
+      ]
+    ]
   }
 }
